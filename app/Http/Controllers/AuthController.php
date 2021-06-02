@@ -49,8 +49,8 @@ public function login(Request $request)
 ]);
 }
 
-public function me(Request $request)
-{
-    return $request->user();
-}
+// public function me(Request $request)
+// {
+//     return $request->user();
+// }
 }

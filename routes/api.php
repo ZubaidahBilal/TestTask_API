@@ -17,6 +17,17 @@ use App\Http\Controllers\AuthController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//Authentication
+
+//Register
+Route::post('/register', [AuthController::class, 'register']);
+
+//Login
+Route::post('/login', [AuthController::class, 'login']);
+
+// //Me
+// Route::post('/me', [AuthController::class, 'me']);
+
 
 //Public routes
 Route::get('/posts', [PostController::class, 'index']);
@@ -36,16 +47,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 
-//Authentication
-
-//Register
-Route::post('/register', [AuthController::class, 'register']);
-
-//Login
-Route::post('/login', [AuthController::class, 'login']);
-
-//Me
-Route::post('/me', [AuthController::class, 'me']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
